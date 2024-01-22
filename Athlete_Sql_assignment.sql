@@ -35,8 +35,9 @@ select * from (select count(medal) as medal_count,team,sport,name from athlete g
 select * from (select count(medal) as medal_count,team,name from athlete  where sport = 'Cycling' and medal ='Gold' group by team,name) as result order by medal_count desc limit 1;
 
 -- Find player with most medals (Gold + Silver + Bronze) in Basketball also show his country.
-select * from (select count(medal) as medal_count,team,name from athlete  where sport = 'Basketball' and medal in ('Gold','Silver','Bronze') group by team,name) as result order by medal_count desc limit 10;
+select * from (select count(medal) as medal_count,team,name from athlete  where sport = 'Basketball' and medal in ('Gold','Silver','Bronze') group by team,name) as result order by medal_count desc limit 1;
 
 -- Find out the count of different medals of the top basketball player.
+select * from (select count( medal) as medal_count,name from athlete  where sport = 'Basketball' group by name) as result order by medal_count desc limit 3;
 
 -- Find out medals won by male, female each year . Export this data and plot graph in excel.
